@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c850dd81be6f4359b736cf48223f355c" Name="Diagram1">
+        <EntityTypeShape EntityType="DBModel.Address" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Customer" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.CustomerAddress" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Product" Width="1.5" PointX="6" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.ProductCategory" Width="1.5" PointX="3.75" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.ProductDescription" Width="1.5" PointX="3.75" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.ProductModel" Width="1.5" PointX="3.75" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.ProductModelProductDescription" Width="1.5" PointX="6" PointY="18.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.SalesOrderDetail" Width="1.5" PointX="8.25" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.SalesOrderHeader" Width="1.5" PointX="6" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.vGetAllCategory" Width="1.5" PointX="2.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.vProductAndDescription" Width="2.75" PointX="8.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.vProductModelCatalogDescription" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
+        <AssociationConnector Association="DBModel.FK_CustomerAddress_Address_AddressID" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_SalesOrderHeader_Address_BillTo_AddressID" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_SalesOrderHeader_Address_ShipTo_AddressID" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_CustomerAddress_Customer_CustomerID" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_SalesOrderHeader_Customer_CustomerID" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Product_ProductCategory_ProductCategoryID" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Product_ProductModel_ProductModelID" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_SalesOrderDetail_Product_ProductID" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_ProductModelProductDescription_ProductDescription_ProductDescriptionID" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_ProductModelProductDescription_ProductModel_ProductModelID" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_SalesOrderDetail_SalesOrderHeader_SalesOrderID" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

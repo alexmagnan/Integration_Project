@@ -1,0 +1,24 @@
+﻿@model IEnumerable<MVCBikesWebpage.Models.BikeListModel>
+@{
+    ViewBag.Title = "Touring";
+}
+<br />
+@if (Request.UrlReferrer != null)
+{
+    <a class="bottomNav" onclick="history.go(-1); return false;" href="#">Back</a><br />
+}
+<h2>Touring Bikes Model List</h2>
+<img src="~/images/touring.jpg" />
+<br />
+@foreach (var item in Model)
+{
+    
+ 
+   @Html.ActionLink(item.ProductModel, "Details", "Bikes", new { id = item.ProductModelID }, null);
+    <br />
+    <p>@Html.DisplayFor(modelItem => item.Description );</p>
+    
+    <br />
+    
+}
+

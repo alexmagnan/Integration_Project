@@ -1,0 +1,184 @@
+﻿@model MVCBikesWebpage.Product
+
+@{
+    ViewBag.Title = "Create";
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+
+
+<h2>Create</h2>
+
+@using (Html.BeginForm("Create", "BikesManager", FormMethod.Post, new { enctype = "multipart/form-data" })) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Product</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProductNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ProductNumber, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ProductNumber, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Color, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Color, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Color, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.StandardCost, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.StandardCost, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.StandardCost, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ListPrice, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ListPrice, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ListPrice, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Size, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Size, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Size, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Weight, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Weight, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Weight, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProductCategoryID, "ProductCategoryID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("ProductCategoryID", (SelectList)ViewBag.ProductCategoryID, htmlAttributes: new { @class = "form-control", @onchange = "OnChange(this)" })
+                @Html.ValidationMessageFor(model => model.ProductCategoryID, "", new { @class = "text-danger"})
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProductModelID, "ProductModelID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("ProductModelID", (SelectList)ViewBag.ProductModelID, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ProductModelID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SellStartDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SellStartDate, new { htmlAttributes = new { @class = "form-control", @Value = DateTime.Today.ToString("d"), @placeholder = "mm/dd/yyyy"} })
+                @Html.ValidationMessageFor(model => model.SellStartDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SellEndDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SellEndDate, new { htmlAttributes = new { @class = "form-control", @placeholder = "mm/dd/yyyy" } })
+                @Html.ValidationMessageFor(model => model.SellEndDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DiscontinuedDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DiscontinuedDate, new { htmlAttributes = new { @class = "form-control", @placeholder = "mm/dd/yyyy" } })
+                @Html.ValidationMessageFor(model => model.DiscontinuedDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ThumbNailPhoto, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" name="file" id="file" style="width: 100%;" />
+                @Html.ValidationMessageFor(model => model.ThumbNailPhoto, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+
+<script type="text/javascript">
+
+    // Store original Product Models in a list
+    var options = [];
+    var filteredOptions = [];
+    $("#ProductModelID").find('option').each(function () {
+        options.push({ value: $(this).val(), text: $(this).text() });
+    });
+  
+    // On the first go, make the filtered products model array the first index in the dropdown
+    filteredOptions = $.grep(options, function (v) {
+        return v.text.split("-")[0] === $("#ProductCategoryID :first").text().split(" ")[0];
+    });
+    $("#ProductCategoryID option").each(function () { $(this).removeAttr('selected') })
+    $("#ProductCategoryID option").first().attr('selected', 'selected')
+    filterOptions();
+
+    //The onChange function
+     function OnChange(obj)
+    {
+         // Store filtered Product Models in a filtered array
+        filteredOptions = $.grep(options, function (v) {
+            return v.text.split("-")[0] === $("#ProductCategoryID :selected").text().split(" ")[0];
+        });
+
+         // Filter the Product Models function
+        filterOptions();
+     }
+
+     function filterOptions() {
+         // Empty out the original dropdown list
+         var str = "";
+         $("#ProductModelID").html(str)
+         // For each filtered product, re-create the HTML option tag for it
+         $.each(filteredOptions, function (li) {
+             str += "<option value= \"" + filteredOptions[li].value + "\">" + filteredOptions[li].text + "</option>"
+         })
+         // Put the html back !
+         $("#ProductModelID").html(str);
+     }
+
+    
+
+
+</script>

@@ -1,0 +1,21 @@
+﻿@model IEnumerable<MVCBikesWebpage.ProductCategory>
+
+@{
+    ViewBag.Title = "Gear";
+}
+<br />
+@if (Request.UrlReferrer != null)
+{
+    <a class="bottomNav" onclick="history.go(-1); return false;" href="#">Back</a><br />
+}
+<h2>Browse Our Selection Of Cycling Accessories</h2>
+
+<table class="table">
+    
+@foreach (var item in Model) {
+    @Html.ActionLink(item.Name, item.Name, "Gear");
+    <br />
+    <br />
+}
+
+</table>

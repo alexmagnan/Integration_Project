@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Home</h2>
+
+<table class="homeTable">
+    <tr>
+        <td>
+            <h2>@Html.ActionLink("Bikes", "Index", "Bikes")</h2>
+           <a href="Bikes"><img src="~/images/bikes.jpg" class="homeIndexImages" /></a> 
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h2>@Html.ActionLink("Gear", "Index", "Gear")</h2>
+            <a href="Gear"><img src="~/images/gear.jpg" class="homeIndexImages" /></a>
+        </td>
+    </tr>
+</table>
+

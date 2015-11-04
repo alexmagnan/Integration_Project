@@ -1,0 +1,47 @@
+﻿@using CaptchaMvc.HtmlHelpers
+@model MVCBikesWebpage.Models.ContactUsModel
+@{
+    
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <h1>Contact us</h1>
+    <br />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <table>
+        <tr>
+            <td><h4>@Html.DisplayNameFor(Model => Model.FirstName)</h4></td>
+            <td>@Html.TextBoxFor(model => model.FirstName, new { required = "required" })</td>
+            <td>@Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })</td>
+        </tr>
+        <tr>
+            <td><h4>@Html.DisplayNameFor(Model => Model.LastName)</h4></td>
+            <td>@Html.TextBoxFor(model => model.LastName, new { required = "required" })</td>
+            <td>@Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })</td>
+        </tr>
+        <tr>
+            <td><h4>@Html.DisplayNameFor(Model => Model.Email)</h4></td>
+            <td>@Html.TextBoxFor(model => model.Email, new { type="email",required = "required" })</td>
+            <td>@Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })</td>
+        </tr>
+        <tr>
+            <td><h4>@Html.DisplayNameFor(Model => Model.Comments)</h4></td>
+            <td>@Html.TextAreaFor(model => model.Comments, new { required = "required" })</td>
+            <td>@Html.ValidationMessageFor(model => model.Comments, "", new { @class = "text-danger" })</td>
+        </tr>
+        <tr>
+            <td>
+                @Html.Captcha("Refresh", "Input", 5, "Is required field.", true)
+            </td>
+            <td><span style="color:red">@ViewBag.CaptchaError</span></td>
+        </tr>
+        <tr>
+            <td><button type="submit">Submit</button> </td>
+            <td><button type="reset">Reset</button></td>
+        </tr>
+    </table> 
+}
