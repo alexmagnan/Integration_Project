@@ -21,7 +21,10 @@ namespace MVCBikesWebpage.Controllers
             return View();
         }
 
-       
+        public ActionResult FAQ()
+        {
+            return View();
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)
