@@ -12,7 +12,7 @@ using System.IO;
 
 namespace MVCBikesWebpage.Controllers
 {
-    //TESTING GITHUB!!!
+   
     public class BikesManagerController : Controller
     {
         private DBEntities db = new DBEntities();
