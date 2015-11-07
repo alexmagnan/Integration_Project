@@ -10,9 +10,9 @@
     <a class="bottomNav" onclick="history.go(-1); return false;" href="#">Back</a><br />
 }
     <h2>@ViewBag.DetailName</h2>
+    <div class="tables-area">
+        <table class="detailsTable">
 
-    <table class="detailsTable">
-   
             <tr>
                 <th>Product</th>
                 <th>Name</th>
@@ -23,7 +23,7 @@
                 <th>Weight</th>
 
             </tr>
-       
+
             @foreach (var item in Model)
             {
                 <tr>
@@ -34,11 +34,13 @@
                     <td>@Html.DisplayFor(modelItem => item.ListPrice)</td>
                     <td>@Html.DisplayFor(modelItem => item.Size) </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Weight) 
-                    </td> 
+                        @Html.DisplayFor(modelItem => item.Weight)
+                    </td>
                 </tr>
-                
-            }
-        
 
-    </table>
+            }
+
+
+        </table>
+    </div>
+   

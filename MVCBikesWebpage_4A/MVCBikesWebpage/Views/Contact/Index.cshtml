@@ -11,37 +11,53 @@
     @Html.AntiForgeryToken()
     <h1>Contact us</h1>
     <br />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <table>
-        <tr>
-            <td><h4>@Html.DisplayNameFor(Model => Model.FirstName)</h4></td>
-            <td>@Html.TextBoxFor(model => model.FirstName, new { required = "required" })</td>
-            <td>@Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })</td>
-        </tr>
-        <tr>
-            <td><h4>@Html.DisplayNameFor(Model => Model.LastName)</h4></td>
-            <td>@Html.TextBoxFor(model => model.LastName, new { required = "required" })</td>
-            <td>@Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })</td>
-        </tr>
-        <tr>
-            <td><h4>@Html.DisplayNameFor(Model => Model.Email)</h4></td>
-            <td>@Html.TextBoxFor(model => model.Email, new { type="email",required = "required" })</td>
-            <td>@Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })</td>
-        </tr>
-        <tr>
-            <td><h4>@Html.DisplayNameFor(Model => Model.Comments)</h4></td>
-            <td>@Html.TextAreaFor(model => model.Comments, new { required = "required" })</td>
-            <td>@Html.ValidationMessageFor(model => model.Comments, "", new { @class = "text-danger" })</td>
-        </tr>
-        <tr>
-            <td>
+    
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <span class="control-label col-md-2">@Html.DisplayNameFor(Model => Model.FirstName)</span>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.FirstName, new { required = "required" })
+                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <span class="control-label col-md-2">@Html.DisplayNameFor(Model => Model.LastName)</span>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.LastName, new { required = "required" })
+                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <span class="control-label col-md-2">@Html.DisplayNameFor(Model => Model.Email)</span>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Email, new { type = "email", required = "required" })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <span class="control-label col-md-2">@Html.DisplayNameFor(Model => Model.Comments)</span>
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Comments, new { required = "required" })
+                @Html.ValidationMessageFor(model => model.Comments, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="control-label col-md-2">
                 @Html.Captcha("Refresh", "Input", 5, "Is required field.", true)
-            </td>
-            <td><span style="color:red">@ViewBag.CaptchaError</span></td>
-        </tr>
-        <tr>
-            <td><button type="submit">Submit</button> </td>
-            <td><button type="reset">Reset</button></td>
-        </tr>
-    </table> 
+            </div>
+            <div class="col-md-10">
+                <span style="color:red">@ViewBag.CaptchaError</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="control-label col-md-2">
+                
+            </div>
+            <div class="col-md-10">
+                <button type="submit">Submit</button>
+                <button type="reset">Reset</button>
+            </div>
+        </div>
+    </div>
 }

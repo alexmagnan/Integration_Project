@@ -1,6 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    min-width:320px;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -15,7 +16,6 @@ select,
 textarea {
     max-width: 280px;
 }
-
 .detailsTable td{
     width:300px;
 }
@@ -32,14 +32,72 @@ textarea {
 }
 
 .homeIndexImages{
-    height:300px;
-     width:1000px; 
+    height:auto;
+    width:100%; 
 }
 
 .bikesDetailImages{
     width:100px;
-    height:60px;
 }
-
-
-
+.navbar-form{
+    width:258px;
+}
+img{
+    max-width:100%;
+    height:auto;
+}
+.tables-area table td:first-child{
+    padding:0 5px 0 0;
+}
+.carousel-control .glyphicon-chevron-right, .carousel-control .icon-next{
+    right: 50%;
+    margin: -10px 0 0 -10px;
+}
+.carousel-control .glyphicon-chevron-left, .carousel-control .glyphicon-chevron-right, .carousel-control .icon-next, .carousel-control .icon-prev{
+    position: absolute;
+    top: 50%;
+    z-index: 5;
+    display: inline-block;
+    margin-top: -10px;
+}
+.carousel-control .glyphicon-chevron-left, .carousel-control .icon-prev{
+    left: 50%;
+    margin-left: -10px;
+}
+@media screen and (min-width: 768px) {
+    .container>.navbar-header,
+    .container>.navbar-collapse{
+        padding:0;
+        margin:0 -15px;
+    }    
+}
+@media screen and (max-width: 767px){
+    h1{
+        font-size:20px;
+    }
+    h2{
+        font-size:18px;
+    }
+    .navbar-form{
+        width:auto;
+    }
+    .navbar-form .form-control{
+        max-width:100%;
+    }
+    .tables-area{
+        overflow:auto;
+        max-height:500px;
+    }
+    .tables-area table{
+        min-width:600px;
+    }
+    .tables-area table td{
+        padding: 0 5px;
+    }
+    .carousel-control{
+        font-size:16px;
+    }
+    .carousel-indicators{
+        bottom:0;
+    }
+}
