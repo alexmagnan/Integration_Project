@@ -17,9 +17,9 @@ namespace MVCBikesWebpage
         public int ProductID { get; set; }
         public string Name { get; set; }
         public string ProductModel { get; set; }
-        public int ProductModelID { get; set; }
+        public Nullable<int> ProductModelID { get; set; }
         public Nullable<System.DateTime> SellEndDate { get; set; }
-        public int ProductCategoryID { get; set; }
+        public Nullable<int> ProductCategoryID { get; set; }
         public string Culture { get; set; }
         public string Description { get; set; }
     }

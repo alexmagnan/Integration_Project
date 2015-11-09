@@ -1,6 +1,4 @@
-﻿@model IEnumerable<MVCBikesWebpage.ProductCategory>
-
-@{
+﻿@{
     ViewBag.Title = "Bikes";
 }
 <br />
@@ -18,12 +16,12 @@
 
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
-            <div class="item active">
-                <img src="~/images/gear.jpg" alt="...">
-            </div>
-            <div class="item">
-                <img src="~/images/bikes.jpg" alt="...">
-            </div>
+            @for (int i = 0; i < Model.Gallery.Count; i++)
+            {
+                <div class="item @(i == 0 ? "active" : "")">
+                    <img src="@Model.Gallery[i]">
+                </div>
+            }
         </div>
 
         <!-- Controls -->
@@ -36,9 +34,10 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
-@foreach (var item in Model) {
+@foreach (var item in Model.Products)
+{
     
-    @Html.ActionLink(item.Name, item.Name.Substring(0, item.Name.IndexOf(' ')),"bikes");
+    @Html.ActionLink((string)item.Name, (string)item.Name.Substring(0, item.Name.IndexOf(' ')),"bikes");
            
     <br />
     <br />

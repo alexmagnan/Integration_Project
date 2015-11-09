@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MVCBikesWebpage;
+using MVCBikesWebpage.Controllers;
 
 namespace MVCBikesWebpage.Models
 {
@@ -30,7 +31,8 @@ namespace MVCBikesWebpage.Models
             var productCategories = from row in db.ProductCategories
                                     where row.ProductCategoryID >= 2 && row.ProductCategoryID <= 4
                                     select row;
-            return View(productCategories);
+            List<string> galleryImages = db.Galleries.Where(g => g.Page == "Gears").Select(g => g.FileName).ToList();
+            return View(new GalleryGridViewModel (){ Products = productCategories.ToList(), Gallery = galleryImages });
         }
 
         public ActionResult Clothing()

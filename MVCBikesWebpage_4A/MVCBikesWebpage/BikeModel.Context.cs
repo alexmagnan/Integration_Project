@@ -40,6 +40,7 @@ namespace MVCBikesWebpage
         public virtual DbSet<vGetAllCategory> vGetAllCategories { get; set; }
         public virtual DbSet<vProductAndDescription> vProductAndDescriptions { get; set; }
         public virtual DbSet<vProductModelCatalogDescription> vProductModelCatalogDescriptions { get; set; }
+        public virtual DbSet<Gallery> Galleries { get; set; }
     
         [DbFunction("DBEntities", "ufnGetAllCategories")]
         public virtual IQueryable<ufnGetAllCategories_Result> ufnGetAllCategories()

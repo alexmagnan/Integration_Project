@@ -4,7 +4,15 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Gallery">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Page" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="FileName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="Address">
           <Key>
             <PropertyRef Name="AddressID" />
@@ -156,7 +164,7 @@
           <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'C:\USERS\1286947\DESKTOP\MVCBIKESWEBPAGE\MVCBIKESWEBPAGE\APP_DATA\ADVENTUREWORKSLT2012_DATAV2.MDF.SalesLT.vGetAllCategories' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'C:\WORK\BICYCLE\MVCBIKESWEBPAGE_4A\MVCBIKESWEBPAGE\APP_DATA\ADVENTUREWORKSLT2012_DATAV2.MDF.SalesLT.vGetAllCategories' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vGetAllCategories">
           <Key>
             <PropertyRef Name="ParentProductCategoryName" />
@@ -166,10 +174,14 @@ warning 6002: The table/view 'C:\USERS\1286947\DESKTOP\MVCBIKESWEBPAGE\MVCBIKESW
           <Property Name="ProductCategoryID" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'C:\USERS\1286947\DESKTOP\MVCBIKESWEBPAGE\MVCBIKESWEBPAGE\APP_DATA\ADVENTUREWORKSLT2012_DATAV2.MDF.SalesLT.vProductAndDescription' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'C:\WORK\BICYCLE\MVCBIKESWEBPAGE_4A\MVCBIKESWEBPAGE\APP_DATA\ADVENTUREWORKSLT2012_DATAV2.MDF.SalesLT.vProductAndDescription' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vProductAndDescription">
           <Key>
             <PropertyRef Name="ProductID" />
+            
+            
+            
+            
           </Key>
           <Property Name="ProductID" Type="int" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -181,7 +193,7 @@ warning 6002: The table/view 'C:\USERS\1286947\DESKTOP\MVCBIKESWEBPAGE\MVCBIKESW
           <Property Name="Description" Type="nvarchar" MaxLength="400" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'C:\USERS\1286947\DESKTOP\MVCBIKESWEBPAGE\MVCBIKESWEBPAGE\APP_DATA\ADVENTUREWORKSLT2012_DATAV2.MDF.SalesLT.vProductModelCatalogDescription' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'C:\WORK\BICYCLE\MVCBIKESWEBPAGE_4A\MVCBIKESWEBPAGE\APP_DATA\ADVENTUREWORKSLT2012_DATAV2.MDF.SalesLT.vProductModelCatalogDescription' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vProductModelCatalogDescription">
           <Key>
             <PropertyRef Name="ProductModelID" />
@@ -392,6 +404,7 @@ warning 6002: The table/view 'C:\USERS\1286947\DESKTOP\MVCBIKESWEBPAGE\MVCBIKESW
         </Function>
         <Function Name="uspPrintError" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="DBModelStoreContainer">
+          <EntitySet Name="Gallery" EntityType="Self.Gallery" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Address" EntityType="Self.Address" Schema="SalesLT" store:Type="Tables" />
           <EntitySet Name="Customer" EntityType="Self.Customer" Schema="SalesLT" store:Type="Tables" />
           <EntitySet Name="CustomerAddress" EntityType="Self.CustomerAddress" Schema="SalesLT" store:Type="Tables" />
@@ -499,8 +512,7 @@ warning 6002: The table/view 'C:\USERS\1286947\DESKTOP\MVCBIKESWEBPAGE\MVCBIKESW
             <End Role="SalesOrderHeader" EntitySet="SalesOrderHeader" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -703,9 +715,9 @@ warning 6002: The table/view 'C:\USERS\1286947\DESKTOP\MVCBIKESWEBPAGE\MVCBIKESW
           <Property Name="ProductID" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ProductModel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ProductModelID" Type="Int32" Nullable="false" />
+          <Property Name="ProductModelID" Type="Int32" />
           <Property Name="SellEndDate" Type="DateTime" Precision="3" Nullable="true" />
-          <Property Name="ProductCategoryID" Type="Int32" Nullable="false" />
+          <Property Name="ProductCategoryID" Type="Int32" />
           <Property Name="Culture" Type="String" MaxLength="6" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="400" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
@@ -952,13 +964,22 @@ warning 6002: The table/view 'C:\USERS\1286947\DESKTOP\MVCBIKESWEBPAGE\MVCBIKESW
           </AssociationSet>
           <FunctionImport Name="ufnGetAllCategories" IsComposable="true" ReturnType="Collection(DBModel.ufnGetAllCategories_Result)" />
           <FunctionImport Name="ufnGetCustomerInformation" IsComposable="true" ReturnType="Collection(DBModel.ufnGetCustomerInformation_Result)">
-            <Parameter Name="CustomerID" Mode="In" Type="Int32" />
+          <Parameter Name="CustomerID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="uspLogError">
-            <Parameter Name="ErrorLogID" Mode="InOut" Type="Int32" />
+          <Parameter Name="ErrorLogID" Mode="InOut" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="uspPrintError" />
+          <EntitySet Name="Galleries" EntityType="DBModel.Gallery" />
         </EntityContainer>
+        <EntityType Name="Gallery">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Page" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="FileName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1195,6 +1216,15 @@ warning 6002: The table/view 'C:\USERS\1286947\DESKTOP\MVCBIKESWEBPAGE\MVCBIKESW
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="uspLogError" FunctionName="DBModel.Store.uspLogError" />
           <FunctionImportMapping FunctionImportName="uspPrintError" FunctionName="DBModel.Store.uspPrintError" />
+          <EntitySetMapping Name="Galleries">
+            <EntityTypeMapping TypeName="DBModel.Gallery">
+              <MappingFragment StoreEntitySet="Gallery">
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="Page" ColumnName="Page" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

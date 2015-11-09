@@ -17,14 +17,15 @@ namespace MVCBikesWebpage.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            
-            return View();
+            List<string> galleryImages = db.Galleries.Where(g => g.Page == "Home").Select(g => g.FileName).ToList();
+            return View(galleryImages);
         }
 
         public ActionResult FAQ()
         {
             return View();
         }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

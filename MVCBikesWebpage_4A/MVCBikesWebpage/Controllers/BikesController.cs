@@ -30,7 +30,7 @@ namespace MVCBikesWebpage.Controllers
             List<BikeListModel> list = new List<BikeListModel>();
             foreach (var item in bikes)
             {
-                list.Add(new BikeListModel(item.ProductModel, item.Description, item.ProductModelID)); 
+                list.Add(new BikeListModel(item.ProductModel, item.Description, item.ProductModelID.Value)); 
             }
 
             return View(list);
@@ -40,7 +40,8 @@ namespace MVCBikesWebpage.Controllers
         public ActionResult Index()
         {
             var productCategories =  from row in db.ProductCategories where row.ParentProductCategoryID == 1 select row;
-            return View(productCategories);
+            List<string> galleryImages = db.Galleries.Where(g => g.Page == "Bikes").Select(g => g.FileName).ToList();
+            return View(new GalleryGridViewModel() { Products = productCategories.ToList(), Gallery = galleryImages });
         }
 
         public ActionResult Mountain()
@@ -65,5 +66,12 @@ namespace MVCBikesWebpage.Controllers
             return View(products);
         }
 
+    }
+
+    public class GalleryGridViewModel
+    {
+        public List<string> Gallery { get; set; }
+
+        public List<ProductCategory> Products { get; set; }
     }
 }

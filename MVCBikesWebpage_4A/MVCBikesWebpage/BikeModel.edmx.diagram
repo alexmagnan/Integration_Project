@@ -30,6 +30,7 @@
         <AssociationConnector Association="DBModel.FK_ProductModelProductDescription_ProductDescription_ProductDescriptionID" ManuallyRouted="false" />
         <AssociationConnector Association="DBModel.FK_ProductModelProductDescription_ProductModel_ProductModelID" ManuallyRouted="false" />
         <AssociationConnector Association="DBModel.FK_SalesOrderDetail_SalesOrderHeader_SalesOrderID" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DBModel.Gallery" Width="1.5" PointX="5.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

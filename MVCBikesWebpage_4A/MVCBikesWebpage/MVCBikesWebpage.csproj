@@ -149,11 +149,15 @@
     <Compile Include="Controllers\BikesController.cs" />
     <Compile Include="Controllers\BikesManagerController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\GalleryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Customer.cs">
       <DependentUpon>BikeModel.tt</DependentUpon>
     </Compile>
     <Compile Include="CustomerAddress.cs">
+      <DependentUpon>BikeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Gallery.cs">
       <DependentUpon>BikeModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
@@ -241,6 +245,10 @@
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Contact\Success.cshtml" />
     <Content Include="Views\Contact\Error.cshtml" />
+    <Content Include="Views\Home\FAQ.cshtml" />
+    <Content Include="Views\Gallery\Index.cshtml" />
+    <Content Include="Views\Gallery\Create.cshtml" />
+    <Content Include="Views\Gallery\Delete.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -254,6 +262,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

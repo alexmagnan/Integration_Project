@@ -45,7 +45,7 @@ namespace MVCBikesWebpage.Controllers
             List<BikeListModel> list = new List<BikeListModel>();
             foreach (var item in bikes)
             {
-                list.Add(new BikeListModel(item.ProductModel, item.Description, item.ProductModelID));
+                list.Add(new BikeListModel(item.ProductModel, item.Description, item.ProductModelID.Value));
             }
             return list;
         }
