@@ -199,9 +199,9 @@
     <Property Name="ProductID" Type="Int32" Nullable="false" />
     <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="ProductModel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="ProductModelID" Type="Int32" Nullable="false" />
+    <Property Name="ProductModelID" Type="Int32" />
     <Property Name="SellEndDate" Type="DateTime" Precision="3" Nullable="true" />
-    <Property Name="ProductCategoryID" Type="Int32" Nullable="false" />
+    <Property Name="ProductCategoryID" Type="Int32" />
     <Property Name="Culture" Type="String" MaxLength="6" FixedLength="true" Unicode="true" Nullable="false" />
     <Property Name="Description" Type="String" MaxLength="400" FixedLength="false" Unicode="true" Nullable="false" />
   </EntityType>
@@ -454,5 +454,14 @@
       <Parameter Name="ErrorLogID" Mode="InOut" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="uspPrintError" />
+    <EntitySet Name="Galleries" EntityType="DBModel.Gallery" />
   </EntityContainer>
+  <EntityType Name="Gallery">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Page" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="FileName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>

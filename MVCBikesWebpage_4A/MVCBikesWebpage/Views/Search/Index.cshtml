@@ -1,0 +1,49 @@
+﻿@model IEnumerable<MVCBikesWebpage.Product>
+@{
+    ViewBag.Title = "Search";
+}
+
+<h2><i class="glyphicon glyphicon-search"></i> Search</h2>
+
+<br />
+@if (Request.UrlReferrer != null)
+{
+    <a class="bottomNav" onclick="history.go(-1); return false;" href="#">Back</a><br />
+}
+<h2>@ViewBag.DetailName</h2>
+<div class="tables-area">
+    <table class="detailsTable">
+
+        <tr>
+            <th>Product</th>
+            <th>Name</th>
+            <th>Product Number</th>
+            <th>Color</th>
+            <th>List Price</th>
+            <th>Size</th>
+            <th>Weight</th>
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td><img src="data:image/gif;base64,@Convert.ToBase64String(item.ThumbNailPhoto)" alt="" class="bikesDetailImages" /></td>
+                <td>@Html.DisplayFor(modelItem => item.Name) </td>
+                <td>@Html.DisplayFor(modelItem => item.ProductNumber)</td>
+                <td>@Html.DisplayFor(modelItem => item.Color)</td>
+                <td>@Html.DisplayFor(modelItem => item.ListPrice)</td>
+                <td>@Html.DisplayFor(modelItem => item.Size) </td>
+
+                <td>@Html.DisplayFor(modelItem => item.Weight) </td>
+
+            </tr>
+
+        }
+
+    </table>
+</div>
+
+
+
+
