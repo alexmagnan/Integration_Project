@@ -231,5 +231,14 @@
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="uspLogError" FunctionName="DBModel.Store.uspLogError" />
     <FunctionImportMapping FunctionImportName="uspPrintError" FunctionName="DBModel.Store.uspPrintError" />
+    <EntitySetMapping Name="Galleries">
+      <EntityTypeMapping TypeName="DBModel.Gallery">
+        <MappingFragment StoreEntitySet="Gallery">
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="Page" ColumnName="Page" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -1,5 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Gallery">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Page" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="FileName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
   <EntityType Name="Address">
     <Key>
       <PropertyRef Name="AddressID" />
@@ -151,7 +159,7 @@
     <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'C:\USERS\1286947\DESKTOP\MVCBIKESWEBPAGE\MVCBIKESWEBPAGE\APP_DATA\ADVENTUREWORKSLT2012_DATAV2.MDF.SalesLT.vGetAllCategories' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'C:\WORK\BICYCLE\MVCBIKESWEBPAGE_4A\MVCBIKESWEBPAGE\APP_DATA\ADVENTUREWORKSLT2012_DATAV2.MDF.SalesLT.vGetAllCategories' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="vGetAllCategories">
     <Key>
       <PropertyRef Name="ParentProductCategoryName" />
@@ -161,7 +169,7 @@ warning 6002: The table/view 'C:\USERS\1286947\DESKTOP\MVCBIKESWEBPAGE\MVCBIKESW
     <Property Name="ProductCategoryID" Type="int" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'C:\USERS\1286947\DESKTOP\MVCBIKESWEBPAGE\MVCBIKESWEBPAGE\APP_DATA\ADVENTUREWORKSLT2012_DATAV2.MDF.SalesLT.vProductAndDescription' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'C:\WORK\BICYCLE\MVCBIKESWEBPAGE_4A\MVCBIKESWEBPAGE\APP_DATA\ADVENTUREWORKSLT2012_DATAV2.MDF.SalesLT.vProductAndDescription' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="vProductAndDescription">
     <Key>
       <PropertyRef Name="ProductID" />
@@ -176,7 +184,7 @@ warning 6002: The table/view 'C:\USERS\1286947\DESKTOP\MVCBIKESWEBPAGE\MVCBIKESW
     <Property Name="Description" Type="nvarchar" MaxLength="400" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'C:\USERS\1286947\DESKTOP\MVCBIKESWEBPAGE\MVCBIKESWEBPAGE\APP_DATA\ADVENTUREWORKSLT2012_DATAV2.MDF.SalesLT.vProductModelCatalogDescription' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'C:\WORK\BICYCLE\MVCBIKESWEBPAGE_4A\MVCBIKESWEBPAGE\APP_DATA\ADVENTUREWORKSLT2012_DATAV2.MDF.SalesLT.vProductModelCatalogDescription' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="vProductModelCatalogDescription">
     <Key>
       <PropertyRef Name="ProductModelID" />
@@ -387,6 +395,7 @@ warning 6002: The table/view 'C:\USERS\1286947\DESKTOP\MVCBIKESWEBPAGE\MVCBIKESW
   </Function>
   <Function Name="uspPrintError" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="DBModelStoreContainer">
+    <EntitySet Name="Gallery" EntityType="Self.Gallery" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Address" EntityType="Self.Address" Schema="SalesLT" store:Type="Tables" />
     <EntitySet Name="Customer" EntityType="Self.Customer" Schema="SalesLT" store:Type="Tables" />
     <EntitySet Name="CustomerAddress" EntityType="Self.CustomerAddress" Schema="SalesLT" store:Type="Tables" />
