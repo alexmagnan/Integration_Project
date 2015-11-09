@@ -101,6 +101,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\style.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -241,6 +242,7 @@
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Contact\Success.cshtml" />
     <Content Include="Views\Contact\Error.cshtml" />
+    <Content Include="Views\Home\FAQ.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
