@@ -1,5 +1,35 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<script>
+    $(function () {
+        $("#accordion").accordion();
+    });
+</script>
 
 <h1>Frequently Asked Questions</h1>
+
+<div id="accordion">
+    <h3>Do you sell to Africa</h3>
+    <div>
+        <p>Yes we sell all over the world !</p>
+    </div>
+    <h3>What is your best bike for mountain ?</h3>
+    <div>
+        <p>It's our @Html.ActionLink("Mountain-400-W","Details/22","Bikes") !</p>
+        <p>
+            This bike delivers a high-level of performance on a budget !
+        </p>
+    </div>
+    <h3>Where are you located ?</h3>
+    <div>
+        <p>Our shop is located in Montreal, Sainte-Anne-de-Bellevue.
+        <br />
+        <br />
+        Come check our shop out  in our @Html.ActionLink("About Us", "Index", "AboutUs") section!</p>
+
+    </div>
+    
+</div>
+
+
