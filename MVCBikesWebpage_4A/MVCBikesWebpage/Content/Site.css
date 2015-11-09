@@ -102,6 +102,16 @@ img{
         bottom:0;
     }
 }
+/* Gallery manager*/
+.slideshow{
+    width:100%;
+    height:600px !important;
+}
+
+.slideshowGallery{
+    width:800%;
+    height:300px !important;
+}
 
 /*
 Theme Name: jqueryui-com

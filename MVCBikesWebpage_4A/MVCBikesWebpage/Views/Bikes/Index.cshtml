@@ -1,5 +1,6 @@
 ﻿@{
     ViewBag.Title = "Bikes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <br />
 @if (Request.UrlReferrer != null)
@@ -19,7 +20,7 @@
             @for (int i = 0; i < Model.Gallery.Count; i++)
             {
                 <div class="item @(i == 0 ? "active" : "")">
-                    <img src="@Model.Gallery[i]">
+                    <img src="@Model.Gallery[i]" class="slideshow">
                 </div>
             }
         </div>
